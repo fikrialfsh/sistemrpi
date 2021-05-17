@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Halaman Data Anggota</title>
+  <title>Halaman Inventaris</title>
   <!-- Favicon -->
 
   <link rel="icon" href="{{asset('assets/img/brand/logo.png') }}" type="image/png">
@@ -145,16 +145,16 @@
           <div class="header-body">
             <div class="row align-items-center py-4">
               <div class="col-lg-11 col-12">
-                <h6 class="h2 text-white d-inline-block mb-0">Data Anggota RPI</h6>
+                <h6 class="h2 text-white d-inline-block mb-0">Kategori Obat Pestisida</h6>
                 <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                   <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                     <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                    <li class="breadcrumb-item"><a href="{{url('/home')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Data Anggota</li>
+                    <li class="breadcrumb-item"><a href="{{url('/mitra')}}"></a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Kategori</li>
                   </ol>
                 </nav>
                 <div class="card-action">
-                  <a href="{{url('/anggota/tambah')}}" class="btn btn-success btn-sm"><i class="fa fa-plus p-r-5">  TAMBAH ANGGOTA</i></a>
+                  <a href="{{url('/inventaris/tambah')}}" class="btn btn-success btn-sm"><i class="fa fa-plus p-r-5">  TAMBAH INVENTARIS</i></a>
                 </div>
                 <br>
                 <div class="card-content">
@@ -163,37 +163,29 @@
                       <thead>
                         <tr  class="table-primary">
                           <th>No</th>
-                          <th>Nama Lengkap</th>
-                          <th>Foto</th>
-                          <th>Kelas</th>
-                          <th>Jurusan</th>
-                          <th>Alamat</th>
-                          <th>Divisi</th>
-                          <th>Nomer HP</th>
-                          <th>Hoby</th>
-                          <th>Status Anggota</th>
+                          <th>Nama Barang</th>
+                          <th>Kategori Barang</th>
+                          <th>Tanggal Pengadaan</th>
+                          <th>Kondisi</th>
+                          <th>Stok</th>
                           <th>Option</th>
                         </tr>
                       </thead>
                       <tbody>
-                          @foreach($anggota as $a)
+                          @foreach($inventaris as $i)
                           <tr>
-                              <td>{{$a->id}}</td>
-                              <td>{{$a->nama}}</td>
-                              <td><img width="150px" src="{{ url('/foto_anggota/'.$a->foto) }}"></td>
+                              <td>{{$i->id}}</td>
+                              <td>{{$i->nama_barang}}</td>
+                              <td>{{$i->kategori->kategori_name}}</td>
+                              <td>{{$i->tanggal_pengadaan}}</td>
+                              <td>{{$i->kondisi}}</td>
+                              <td>{{$i->stok}}</td>
 
-                              <td>{{$a->kelas}}</td>
-                              <td>{{$a->jurusan}}</td>
-                              <td>{{$a->alamat}}</td>
-                              <td>{{$a->divisi}}</td>
-                              <td>{{$a->nohp}}</td>
-                              <td>{{$a->hobi}}</td>
-                              <td>{{$a->status}}</td>
 
 
                               <td>
-                                  <a href="/anggota/edit/{{ $a->id }}"class="btn btn-success" ><i class="fa fa-edit"></i></a>
-                                  <a href="/anggota/delete/{{ $a->id }}"class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                  <a href="/inventaris/edit/{{ $i->id }}"class="btn btn-success" ><i class="fa fa-edit"></i></a>
+                                  <a href="/inventaris/delete/{{ $i->id }}"class="btn btn-danger"><i class="fa fa-trash"></i></a>
                               </td>
                           </tr>
 

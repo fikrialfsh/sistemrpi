@@ -11,6 +11,6 @@ class Kategori extends Model
         'kategori_name'
     ];
     public function inventaris(){
-        return $this->hasMany('App\Models\Inventaris');
+        return $this->hasMany('App\Inventaris');
     }
 }

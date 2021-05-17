@@ -45,7 +45,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url('/mitra/produk')}}">
+              <a class="nav-link" href="{{url('/anggota')}}">
                 <i class="fas fa-user-friends text-primary"></i>
                 <span class="nav-link-text">Data Anggota</span>
               </a>

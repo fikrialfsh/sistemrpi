@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Halaman Data Anggota</title>
+  <title>Halaman Admin</title>
   <!-- Favicon -->
 
   <link rel="icon" href="{{asset('assets/img/brand/logo.png') }}" type="image/png">
@@ -49,12 +49,6 @@
                 <a class="nav-link" href="{{url('/anggota')}}">
                   <i class="fas fa-user-friends text-primary"></i>
                   <span class="nav-link-text">Data Anggota</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{url('/kategori')}}">
-                    <i class="fas fa-boxes text-primary"></i>
-                  <span class="nav-link-text">Kategori Barang </span>
                 </a>
               </li>
               <li class="nav-item">
@@ -145,64 +139,41 @@
           <div class="header-body">
             <div class="row align-items-center py-4">
               <div class="col-lg-11 col-12">
-                <h6 class="h2 text-white d-inline-block mb-0">Data Anggota RPI</h6>
+                <h6 class="h2 text-white d-inline-block mb-0">Kategori Obat Pestisida</h6>
                 <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                   <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                     <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                    <li class="breadcrumb-item"><a href="{{url('/home')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Data Anggota</li>
+                    <li class="breadcrumb-item"><a href="{{url('/mitra')}}"></a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Kategori</li>
                   </ol>
                 </nav>
-                <div class="card-action">
-                  <a href="{{url('/anggota/tambah')}}" class="btn btn-success btn-sm"><i class="fa fa-plus p-r-5">  TAMBAH ANGGOTA</i></a>
-                </div>
-                <br>
-                <div class="card-content">
-                    <div class="table-responsive">
-                  <table class="table table-light" id="datatables">
-                      <thead>
-                        <tr  class="table-primary">
-                          <th>No</th>
-                          <th>Nama Lengkap</th>
-                          <th>Foto</th>
-                          <th>Kelas</th>
-                          <th>Jurusan</th>
-                          <th>Alamat</th>
-                          <th>Divisi</th>
-                          <th>Nomer HP</th>
-                          <th>Hoby</th>
-                          <th>Status Anggota</th>
-                          <th>Option</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                          @foreach($anggota as $a)
-                          <tr>
-                              <td>{{$a->id}}</td>
-                              <td>{{$a->nama}}</td>
-                              <td><img width="150px" src="{{ url('/foto_anggota/'.$a->foto) }}"></td>
-
-                              <td>{{$a->kelas}}</td>
-                              <td>{{$a->jurusan}}</td>
-                              <td>{{$a->alamat}}</td>
-                              <td>{{$a->divisi}}</td>
-                              <td>{{$a->nohp}}</td>
-                              <td>{{$a->hobi}}</td>
-                              <td>{{$a->status}}</td>
 
 
-                              <td>
-                                  <a href="/anggota/edit/{{ $a->id }}"class="btn btn-success" ><i class="fa fa-edit"></i></a>
-                                  <a href="/anggota/delete/{{ $a->id }}"class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                              </td>
-                          </tr>
+                    <div class="card-action">
+                        <form role="form" method="post" action="{{ url('/kategori/tambahdata') }}">
 
-                      @endforeach
 
-                      </tbody>
-                    </table>
-                </div>
-                </div>
+                            @csrf
+                            <div class="box-body">
+                            <div class="form-group">
+
+                                    <input type="text" name="kategori_name" class="form-control" placeholder="Nama Kategori Obat" >
+                                    @if($errors->has('kategori_name'))
+                                        <div class="text-danger">
+                                            {{ $errors->first('kategori_name')}}
+                                        </div>
+                                    @endif
+
+                                </div>
+
+                        </div>
+                    <!-- /.box-body -->
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-success">Simpan</button>
+                    </div>
+                    </form>
+
 
               </div>
             </div>

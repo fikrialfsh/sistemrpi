@@ -12,6 +12,6 @@ class Inventaris extends Model
         'id','nama_barang','kategori_id','tanggal_pengadaan','kondisi','stok',
     ];
     public function kategori(){
-    	return $this->belongsTo('App\Models\Kategori');
+    	return $this->belongsTo('App\Kategori');
     }
 }

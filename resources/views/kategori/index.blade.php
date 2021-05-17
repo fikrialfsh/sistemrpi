@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Halaman Data Anggota</title>
+  <title>Halaman Kategori Barang</title>
   <!-- Favicon -->
 
   <link rel="icon" href="{{asset('assets/img/brand/logo.png') }}" type="image/png">
@@ -145,62 +145,46 @@
           <div class="header-body">
             <div class="row align-items-center py-4">
               <div class="col-lg-11 col-12">
-                <h6 class="h2 text-white d-inline-block mb-0">Data Anggota RPI</h6>
+                <h6 class="h2 text-white d-inline-block mb-0">Kategori Barang Inventaris</h6>
                 <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                   <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                     <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
                     <li class="breadcrumb-item"><a href="{{url('/home')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Data Anggota</li>
+                    <li class="breadcrumb-item active" aria-current="page">Kategori</li>
                   </ol>
                 </nav>
                 <div class="card-action">
-                  <a href="{{url('/anggota/tambah')}}" class="btn btn-success btn-sm"><i class="fa fa-plus p-r-5">  TAMBAH ANGGOTA</i></a>
+                  <a href="{{url('/kategori/tambah')}}" class="btn btn-success btn-sm"><i class="fa fa-plus p-r-5">  TAMBAH KATEGORI</i></a>
                 </div>
                 <br>
                 <div class="card-content">
                     <div class="table-responsive">
-                  <table class="table table-light" id="datatables">
-                      <thead>
-                        <tr  class="table-primary">
-                          <th>No</th>
-                          <th>Nama Lengkap</th>
-                          <th>Foto</th>
-                          <th>Kelas</th>
-                          <th>Jurusan</th>
-                          <th>Alamat</th>
-                          <th>Divisi</th>
-                          <th>Nomer HP</th>
-                          <th>Hoby</th>
-                          <th>Status Anggota</th>
-                          <th>Option</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                          @foreach($anggota as $a)
-                          <tr>
-                              <td>{{$a->id}}</td>
-                              <td>{{$a->nama}}</td>
-                              <td><img width="150px" src="{{ url('/foto_anggota/'.$a->foto) }}"></td>
+                        <table id="datatables" class="table table-light">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Kategori</th>
 
-                              <td>{{$a->kelas}}</td>
-                              <td>{{$a->jurusan}}</td>
-                              <td>{{$a->alamat}}</td>
-                              <td>{{$a->divisi}}</td>
-                              <td>{{$a->nohp}}</td>
-                              <td>{{$a->hobi}}</td>
-                              <td>{{$a->status}}</td>
+                                    <th> Option</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($kategori as $k)
+                                    <tr>
+                                        <td>{{$k->id}}</td>
+                                        <td>{{$k->kategori_name}}</td>
 
 
-                              <td>
-                                  <a href="/anggota/edit/{{ $a->id }}"class="btn btn-success" ><i class="fa fa-edit"></i></a>
-                                  <a href="/anggota/delete/{{ $a->id }}"class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                              </td>
-                          </tr>
+                                        <td>
+                                            <a href="/kategori/edit/{{ $k->id }}"class="btn btn-primary" ><i class="fa fa-edit"></i></a>
+                                            <a href="/kategori/delete/{{ $k->id }}"class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
 
-                      @endforeach
+                                @endforeach
+                            </tbody>
+                        </table>
 
-                      </tbody>
-                    </table>
                 </div>
                 </div>
 

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Halaman Data Anggota</title>
+  <title>Halaman Edit Anggota</title>
   <!-- Favicon -->
 
   <link rel="icon" href="{{asset('assets/img/brand/logo.png') }}" type="image/png">
@@ -37,48 +37,50 @@
       <div class="navbar-inner">
         <!-- Collapse -->
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-            <!-- Nav items -->
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" href="{{url('/home')}}">
-                  <i class="ni ni-tv-2 text-primary"></i>
-                  <span class="nav-link-text">Dashboard</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{url('/anggota')}}">
-                  <i class="fas fa-user-friends text-primary"></i>
-                  <span class="nav-link-text">Data Anggota</span>
-                </a>
-              </li>
-              <li class="nav-item">
+          <!-- Nav items -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="{{url('/home')}}">
+                <i class="ni ni-tv-2 text-primary"></i>
+                <span class="nav-link-text">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('/anggota')}}">
+                <i class="fas fa-user-friends text-primary"></i>
+                <span class="nav-link-text">Data Anggota</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="{{url('/kategori')}}">
                     <i class="fas fa-boxes text-primary"></i>
                   <span class="nav-link-text">Kategori Barang </span>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{url('/inventaris')}}">
-                  <i class="fas fa-box-open text-primary"></i>
-                  <span class="nav-link-text">Inventaris Barang</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{url('/proker')}}">
-                  <i class="fas fa-clipboard-list text-primary"></i>
-                  <span class="nav-link-text">Program Kerja</span>
-                </a>
-              </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('/inventaris')}}">
+                <i class="fas fa-box-open text-primary"></i>
+                <span class="nav-link-text">Inventaris Barang</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('/proker')}}">
+                <i class="fas fa-clipboard-list text-primary"></i>
+                <span class="nav-link-text">Program Kerja</span>
+              </a>
+            </li>
 
 
-            </ul>
+          </ul>
 
-            <!-- Divider -->
-            <hr class="my-3">
-            <!-- Heading -->
+          <!-- Divider -->
+          <hr class="my-3">
+          <!-- Heading -->
 
-            <!-- Navigation -->
-          </div>
+          <!-- Navigation -->
+        </div>
       </div>
     </div>
   </nav>
@@ -145,64 +147,121 @@
           <div class="header-body">
             <div class="row align-items-center py-4">
               <div class="col-lg-11 col-12">
-                <h6 class="h2 text-white d-inline-block mb-0">Data Anggota RPI</h6>
+                <h6 class="h2 text-white d-inline-block mb-0">Kategori Obat Pestisida</h6>
                 <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                   <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                     <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
                     <li class="breadcrumb-item"><a href="{{url('/home')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Data Anggota</li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Anggota</li>
                   </ol>
                 </nav>
-                <div class="card-action">
-                  <a href="{{url('/anggota/tambah')}}" class="btn btn-success btn-sm"><i class="fa fa-plus p-r-5">  TAMBAH ANGGOTA</i></a>
+
+
+                    <div class="card-action">
+                        <form method="post" action="{{ url('/anggota/update/'. $anggota->id) }}" enctype="multipart/form-data">
+
+                            {{ csrf_field() }}
+                            {{ method_field('PUT') }}
+                         <div class="box-body">
+                         <div class="form-group">
+
+                                 <input type="text" name="nama" class="form-control" placeholder="Nama Anggota" value="{{$anggota->nama}}">
+                                 @if($errors->has('nama'))
+                                     <div class="text-danger">
+                                         {{ $errors->first('nama')}}
+                                     </div>
+                                 @endif
+
+                             </div>
+
+
+
+                             <div class="form-group">
+                                <b>Foto Anggota</b><br/>
+                                <input type="file" name="foto">
+                                </div>
+
+                                <div class="form-group">
+                                <input type="text" name="kelas" class="form-control" placeholder="kelas Anggota" value="{{$anggota->kelas}}">
+                                @if($errors->has('kelas'))
+                                    <div class="text-danger">
+                                        {{ $errors->first('kelas')}}
+                                    </div>
+                                @endif
+
+                            </div>
+                         <div class="form-group">
+
+                            <select class="form-control" aria-label="Default select example" name="jurusan">
+                                <option selected >{{$anggota->jurusan}}</option>
+                                <option value="Teknik Mesin">Teknik Mesin</option>
+                                <option value="Perancangan Manufaktur">Perancangan Manufaktur</option>
+                                <option value="Teknik Informatika">Teknik Informatika</option>
+                                <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
+                                <option value="Keperawatan">Keperawatan</option>
+                                <option value="Teknik Pendingin dan Tata Udara">Teknik Pendingin dan Tata Udara</option>
+                              </select>
+
+                             </div>
+                         <div class="form-group">
+
+                                 <input type="text" name="alamat" class="form-control" placeholder="Alamat" value="{{$anggota->alamat}}">
+                                 @if($errors->has('alamat'))
+                                     <div class="text-danger">
+                                         {{ $errors->first('alamat')}}
+                                     </div>
+                                 @endif
+
+                             </div>
+                             <div class="form-group">
+
+                                <select class="form-control" aria-label="Default select example" name="divisi">
+                                    <option selected>{{$anggota->divisi}}</option>
+                                    <option value="Programmer">Programmer</option>
+                                    <option value="Mekanik">Mekanik</option>
+                                    <option value="Hardware">Hardware</option>
+
+                                  </select>
+
+                                 </div>
+                         <div class="form-group">
+
+                                 <input type="text" name="nohp" class="form-control" placeholder="No Hp" value="{{$anggota->nohp}}">
+                                 @if($errors->has('nohp'))
+                                     <div class="text-danger">
+                                         {{ $errors->first('nohp')}}
+                                     </div>
+                                 @endif
+
+                             </div>
+                         <div class="form-group">
+
+                                 <input type="text" name="hobi" class="form-control" placeholder="Hobi" value="{{$anggota->hobi}}" >
+                                 @if($errors->has('hobi'))
+                                     <div class="text-danger">
+                                         {{ $errors->first('hobi')}}
+                                     </div>
+                                 @endif
+
+                             </div>
+                             <div class="form-group">
+
+                                <select class="form-control" aria-label="Default select example" name="status">
+                                    <option selected>{{$anggota->status}}</option>
+                                    <option value= 1 >Anggota Muda</option>
+                                    <option value= 2 >Anggota Biasa</option>
+                                    <option value= 3 >Anggota Kehormatan</option>
+
+                                  </select>
+
+                                 </div>
+                 <!-- /.box-body -->
+
+
+                 <div class="form-group">
+                    <input type="submit" class="btn btn-success" value="Simpan">
                 </div>
-                <br>
-                <div class="card-content">
-                    <div class="table-responsive">
-                  <table class="table table-light" id="datatables">
-                      <thead>
-                        <tr  class="table-primary">
-                          <th>No</th>
-                          <th>Nama Lengkap</th>
-                          <th>Foto</th>
-                          <th>Kelas</th>
-                          <th>Jurusan</th>
-                          <th>Alamat</th>
-                          <th>Divisi</th>
-                          <th>Nomer HP</th>
-                          <th>Hoby</th>
-                          <th>Status Anggota</th>
-                          <th>Option</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                          @foreach($anggota as $a)
-                          <tr>
-                              <td>{{$a->id}}</td>
-                              <td>{{$a->nama}}</td>
-                              <td><img width="150px" src="{{ url('/foto_anggota/'.$a->foto) }}"></td>
-
-                              <td>{{$a->kelas}}</td>
-                              <td>{{$a->jurusan}}</td>
-                              <td>{{$a->alamat}}</td>
-                              <td>{{$a->divisi}}</td>
-                              <td>{{$a->nohp}}</td>
-                              <td>{{$a->hobi}}</td>
-                              <td>{{$a->status}}</td>
-
-
-                              <td>
-                                  <a href="/anggota/edit/{{ $a->id }}"class="btn btn-success" ><i class="fa fa-edit"></i></a>
-                                  <a href="/anggota/delete/{{ $a->id }}"class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                              </td>
-                          </tr>
-
-                      @endforeach
-
-                      </tbody>
-                    </table>
-                </div>
-                </div>
+                 </form>
 
               </div>
             </div>

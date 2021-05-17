@@ -19,8 +19,8 @@ class AnggotaController extends Controller
 
     public function create()
     {
-        $anggota = Anggota::orderBy('nama_kategori', 'DESC')->get();
-        return view('Anggota.tambah',compact('kategori'));
+
+        return view('Anggota.tambah');
     }
 
     public function store(Request $request)
@@ -34,7 +34,7 @@ class AnggotaController extends Controller
             'jurusan' => 'required',
 			'alamat' => 'required',
 			'divisi' => 'required',
-			'hohp' => 'required',
+			'nohp' => 'required',
 			'hobi' => 'required',
 			'status' => 'required',
 		]);
@@ -55,14 +55,14 @@ class AnggotaController extends Controller
 			'kelas' => $request->kelas,
             'jurusan' => $request->jurusan,
 			'alamat' => $request->alamat,
-			'divisi' => $request->komposisi,
+			'divisi' => $request->divisi,
 			'nohp' => $request->nohp,
 			'hobi' => $request->hobi,
-            'status' => $request->harga,
+            'status' => $request->status,
 
         ]);
         // alert()->success('Data Pupuk telah ditambahkan', 'Sukses');
-        return redirect('/mitra/produk');
+        return redirect('/anggota');
 
     }
 
@@ -91,7 +91,7 @@ class AnggotaController extends Controller
         $anggota->nama= $request->nama;
         if($request->file('foto') == "")
         {
-                $anggota->gambar=$anggota->gambar;
+                $anggota->foto=$anggota->foto;
 
             }
             else
@@ -103,7 +103,6 @@ class AnggotaController extends Controller
         }
         $anggota->kelas = $request->kelas;
         $anggota->jurusan = $request->jurusan;
-
         $anggota->alamat = $request->alamat;
         $anggota->divisi = $request->divisi;
         $anggota->nohp = $request->nohp;
