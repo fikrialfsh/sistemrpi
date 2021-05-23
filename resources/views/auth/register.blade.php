@@ -1,6 +1,50 @@
-@extends('layouts.app')
 
-@section('content')
+<!--new -->
+
+<!--new -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+    
+
+    <!-- Title Page-->
+    <title>Register </title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <!-- Fontfaces CSS-->
+    <link rel="stylesheet" href="{{asset('cooladmin/css/font-face.css')}}">
+    <link rel="stylesheet" href="{{asset('cooladmin/vendor/font-awesome-4.7/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('cooladmin/vendor/font-awesome-5/css/fontawesome-all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('cooladmin/vendor/mdi-font/css/material-design-iconic-font.min.css')}}">
+    <link rel="shortcut icon" href="{{asset('favicon1.ico')}}" />
+    
+    
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="{{asset('cooladmin/vendor/bootstrap-4.1/bootstrap.min.css')}}">
+
+    <!-- Vendor CSS-->
+    <link rel="stylesheet" href="{{asset('cooladmin/vendor/animsition/animsition.min.css')}}">
+    <link rel="stylesheet" href="{{asset('cooladmin/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('cooladmin/vendor/wow/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('cooladmin/vendor/css-hamburgers/hamburgers.min.css')}}">
+    <link rel="stylesheet" href="{{asset('cooladmin/vendor/slick/slick.css')}}">
+    <link rel="stylesheet" href="{{asset('cooladmin/vendor/select2/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('cooladmin/vendor/perfect-scrollbar/perfect-scrollbar.css')}}">
+    
+    
+    <!-- Main CSS-->
+    <link rel="stylesheet" href="{{asset('cooladmin/css/theme.css')}}">
+
+</head>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -74,4 +118,4 @@
         </div>
     </div>
 </div>
-@endsection
+

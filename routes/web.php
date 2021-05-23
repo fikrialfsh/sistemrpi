@@ -49,3 +49,10 @@ Route::post('/kategori/tambahdata','KategoriController@store');
 Route::get('/kategori/edit/{id}', 'KategoriController@edit');
 Route::put('/kategori/update/{id}', 'KategoriController@update');
 Route::get('/kategori/delete/{id}', 'KategoriController@delete');
+
+Route::get('/peminjaman', 'PeminjamanController@index');
+Route::get('/peminjaman/tambah','PeminjamanController@create');
+Route::post('/peminjaman/tambahdata','PeminjamanController@store');
+Route::get('/peminjaman/edit/{id}', 'PeminjamanController@edit');
+Route::put('/peminjaman/update/{id}', 'PeminjamanController@update');
+Route::get('/peminjaman/delete/{id}', 'PeminjamanController@delete');

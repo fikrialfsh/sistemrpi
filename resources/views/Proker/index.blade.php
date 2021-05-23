@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 
@@ -69,6 +67,12 @@
                   <span class="nav-link-text">Program Kerja</span>
                 </a>
               </li>
+              <li class="nav-item">
+              <a class="nav-link" href="{{url('/peminjaman')}}">
+                <i class="fas fa-list text-primary"></i>
+                <span class="nav-link-text">Peminjaman Barang</span>
+              </a>
+            </li>
 
 
 
@@ -146,16 +150,16 @@
           <div class="header-body">
             <div class="row align-items-center py-4">
               <div class="col-lg-11 col-12">
-                <h6 class="h2 text-white d-inline-block mb-0">Kategori Obat Pestisida</h6>
+                <h6 class="h2 text-white d-inline-block mb-0">Program Kerja</h6>
                 <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                   <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                     <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
                     <li class="breadcrumb-item"><a href="{{url('/mitra')}}"></a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Kategori</li>
+                    <li class="breadcrumb-item active" aria-current="page">Proker</li>
                   </ol>
                 </nav>
                 <div class="card-action">
-                  <a href="{{url('/anggota/tambah')}}" class="btn btn-success btn-sm"><i class="fa fa-plus p-r-5">  TAMBAH ANGGOTA</i></a>
+                  <a href="{{url('/proker/tambah')}}" class="btn btn-success btn-sm"><i class="fa fa-plus p-r-5">  TAMBAH PROKER</i></a>
                 </div>
                 <br>
                 <div class="card-content">
@@ -185,8 +189,8 @@
 
 
                               <td>
-                                  <a href="/anggota/edit/{{ $p->id }}"class="btn btn-success" ><i class="fa fa-edit"></i></a>
-                                  <a href="/anggota/delete/{{ $p->id }}"class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                  <a href="/proker/edit/{{ $p->id }}"class="btn btn-success" ><i class="fa fa-edit"></i></a>
+                                  <a href="/proker/delete/{{ $p->id }}"class="btn btn-danger"><i class="fa fa-trash"></i></a>
                               </td>
                           </tr>
 

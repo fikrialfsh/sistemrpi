@@ -69,6 +69,12 @@
                   <span class="nav-link-text">Program Kerja</span>
                 </a>
               </li>
+              <li class="nav-item">
+              <a class="nav-link" href="{{url('/peminjaman')}}">
+                <i class="fas fa-clipboard-list text-primary"></i>
+                <span class="nav-link-text">Peminjaman Barang</span>
+              </a>
+            </li>
 
 
             </ul>

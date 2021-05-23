@@ -51,15 +51,21 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url('/mitra/kategori')}}">
+              <a class="nav-link" href="{{url('/inventaris')}}">
                 <i class="fas fa-box-open text-primary"></i>
                 <span class="nav-link-text">Inventaris Barang</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="profile.html">
+              <a class="nav-link" href="{{url('/proker')}}">
                 <i class="fas fa-clipboard-list text-primary"></i>
                 <span class="nav-link-text">Program Kerja</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('/peminjaman')}}">
+                <i class="fas fa-list text-primary"></i>
+                <span class="nav-link-text">Peminjaman Barang</span>
               </a>
             </li>
 
